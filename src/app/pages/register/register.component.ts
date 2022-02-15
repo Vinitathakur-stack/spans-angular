@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ToastrService } from 'ngx-toastr';
+   
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -15,13 +19,16 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit(): void {
+
   }
   onSubmit(): void {
     const { username, email, password } = this.form;
+    this.toastr.success("message", "title")
     console.log("submit");
+  
     // this.authService.register(username, email, password).subscribe({
     //   next: data => {
     //     console.log(data);
