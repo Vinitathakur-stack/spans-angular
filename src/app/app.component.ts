@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'SPANS';
-  version = 'Version 1.0.0';
+  title = 'span-app';
 }
