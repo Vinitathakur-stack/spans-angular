@@ -1,18 +1,86 @@
-<p>login works!</p>
+<!-- <section class="main-content" id="main-content">
+  <div class="login-wrapper">
+    <div class="login-box mt-5">
+      <div
+        class="login-header text-center d-flex flex-column align-items-center justify-content-around bg-dark-light"
+      >
+        <h5 class="box-heading">Welcome To</h5>
+        <img src="../../../../assets/images/logo.png" class="h-70" />
+        <p>Please sign into your account</p>
+      </div>
+      <div class="login-content">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+          <div class="form-group mb-3"> 
+            <label for="">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter usernamame" name="username"
+              [(ngModel)]="form.username"
+              required
+              #username="ngModel"
+            />
+          </div>
+          <div class="form-group mb-3">
+            <label for="">Password</label>
+            <!-- <div class="pass-box relative">
+              <input type="password" class="form-control" />
+              <div class="eye-box absolute">
+                <img src="../../../../assets/images/eye.svg" />
+              </div>
+            </div> -->
+            <!-- <div class="input-group">
+              <input
+                [type]="fieldTextType ? 'text' : 'password'"
+                class="form-control"
+                formControlName="password"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  <i class="fa fa-eye-slash"
+                  [ngClass]="{
+                    'fa-eye-slash': !fieldTextType,
+                    'fa-eye': fieldTextType
+                  }"
+                  (click)="toggleFieldTextType()"
+                ></i>
+                </span>
+             </div>
+          </div>
+          </div>
+        
+          <div class="form-group mb-3">
+            <label for="">Select your membership role :</label>
+            <select class="form-select form-control">
+              <option>Family</option>
+            </select>
+          </div>
+          <a class="for-pass d-block f-black mt-2 mb-4 underline" href="#"
+            >Forgot your password ?</a
+          >
+          <div class="form-group mt-2">
+            <button
+              type="button"
+              class="btn bg-dark-blue form-control btn-lg h-40 bdr-40"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section> --> 
+
+
 <div class="col-md-12">
     <div class="card card-container">
-      <img
-        id="profile-img"
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-        class="profile-img-card"
-      />
-      <form
-        *ngIf="!isLoggedIn"
-        name="form"
-        (ngSubmit)="f.form.valid && onSubmit()"
-        #f="ngForm"
-        novalidate
-      >
+      <div class="login-header text-center d-flex flex-column align-items-center justify-content-around bg-dark-light"  >
+      <h5 class="box-heading">Welcome To</h5>
+      <img src="../../../../assets/images/logo.png" class="h-70" />
+      <p>Please sign into your account</p>
+    </div>
+      <form *ngIf="!isLoggedIn" name="form"  (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"  novalidate >
         <div class="form-group">
           <label for="username">Username</label>
           <input
@@ -33,8 +101,9 @@
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input
-            type="password"
+          <div class="input-group">
+            <input
+            [type]="fieldTextType ? 'text' : 'password'"
             class="form-control"
             name="password"
             [(ngModel)]="form.password"
@@ -42,6 +111,21 @@
             minlength="6"
             #password="ngModel"
           />
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fa fa-eye-slash"
+              [ngClass]="{
+                'fa-eye-slash': !fieldTextType,
+                'fa-eye': fieldTextType
+              }"
+              (click)="toggleFieldTextType()"
+            ></i>
+            </span>
+         </div>
+       
+          </div>
+          
+          
           <div
             class="alert alert-danger"
             role="alert"
@@ -53,6 +137,23 @@
             </div>
           </div>
         </div>
+        <div class="form-group">
+            <label for="membership">Select your membership role :</label>
+            <select name="membership" class="form-control" (change)="changemembership()" [(ngModel)]="form.membership"
+            required #membership="ngModel">
+                <option disabled>Select Membership</option>
+                <option *ngFor="let web of membershipList">{{web}}</option>
+            </select>
+            <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="membership.errors && f.submitted"
+          >
+          Membership is required!
+          </div>
+        </div>
+        <a class="for-pass d-block f-black mt-2 mb-4 underline" href="#"
+        >Forgot your password ?</a>
         <div class="form-group">
           <button class="btn btn-primary btn-block">
             Login
@@ -74,4 +175,3 @@
       </div>
     </div>
   </div>
-  
