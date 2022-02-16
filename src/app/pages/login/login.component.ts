@@ -33,27 +33,27 @@ export class LoginComponent implements OnInit {
     this.form.email = 'Vinita5@gmail.com';
     this.form.password = '1234566666';
     
-    // this.authService.login(this.form).subscribe(response => {
+    this.authService.login(this.form).subscribe(response => {
     
-    //   // if (response["message"] == "success") {
+      // if (response["message"] == "success") {
 
-    //   //   console.log(response["data"]);
-    //   //   this.tokenStorage.saveToken(response['data']['Token']);
-    //   //   this.tokenStorage.saveUser(response["data"]);
+      //   console.log(response["data"]);
+      //   this.tokenStorage.saveToken(response['data']['Token']);
+      //   this.tokenStorage.saveUser(response["data"]);
       
-    //   //   let path = "/home";
-		// 	// 			this.router.navigate([path]).then(() => {
-		// 	// 				this.toastr.success(response['message']);
-		// 	// 			});
+      //   let path = "/home";
+			// 			this.router.navigate([path]).then(() => {
+			// 				this.toastr.success(response['message']);
+			// 			});
 
-    //   // }else {
-    //   //   this.toastr.error(response['message']);
-    //   // }
-    //   let path = "/home";
-    //   this.router.navigate([path]).then(() => {
-    //     this.toastr.success('successfully logged');
-    //   });
-    // });
+      // }else {
+      //   this.toastr.error(response['message']);
+      // }
+      let path = "/home";
+      this.router.navigate([path]).then(() => {
+        this.toastr.success('successfully logged');
+      });
+    });
     let path = "/home";
     this.router.navigate([path]).then(() => {
       this.toastr.success('successfully logged');

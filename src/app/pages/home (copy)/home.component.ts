@@ -8,14 +8,12 @@ import { ChatService } from '../../_services/chat.service';
 export class HomeComponent implements OnInit {
   familyList: any = ['Family', 'Navigator', 'XYZ']
   preferdmode:any = ['Contact', 'Email','Web'];
-  preferedMode:string;
-  
-  isLoggedIn = true;
-  public roomId: string;
-  public messageText: string;
+  preferedMode:string='';
 
+  public roomId: string='';
+  public messageText: string='';
   public messageArray: { user: string, message: string }[] = [];
-  private storageArray: any[] = [];
+  private storageArray:any[] = [];
 
   public showScreen = false;
   public phone: string;
@@ -69,12 +67,7 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-
-  constructor(
-    private chatService: ChatService
-  ) { 
-    this.currentUser = this.userList.find(user => user.phone === '9876598765');
-    this.userList = this.userList.filter((user) => user.phone !== '9876598765'); }
+  constructor(  private chatService: ChatService) { }
 
   ngOnInit(): void {
     this.chatService.getMessage()
@@ -89,6 +82,21 @@ export class HomeComponent implements OnInit {
         }, 500);
       }
     });
+    this.currentUser = this.userList.find(user => user.phone === '9988776655');
+    this.userList = this.userList.filter((user) => user.phone !== '9988776655');
+    this.selectedUser = this.userList.find(user => user.phone === '9876556789');
+    this.roomId = this.selectedUser.roomId[this.currentUser.id];
+    this.messageArray = [];
+
+    this.storageArray = this.chatService.getStorage();
+
+    const storeIndex = this.storageArray .findIndex((storage) => storage.roomId === this.roomId);
+
+          if (storeIndex > -1) {
+            this.messageArray = this.storageArray[storeIndex].chats;
+          }
+
+          this.join(this.currentUser.name, this.roomId);
   }
   changefamily(e){
     console.log(e.target.value);
@@ -99,30 +107,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
-  selectUserHandler(phone: string): void {
-    this.selectedUser = this.userList.find(user => user.phone === phone);
-    this.roomId = this.selectedUser.roomId[this.currentUser.id];
-    this.messageArray = [];
-
-    this.storageArray = this.chatService.getStorage();
-    const storeIndex = this.storageArray
-      .findIndex((storage) => storage.roomId === this.roomId);
-
-    if (storeIndex > -1) {
-      this.messageArray = this.storageArray[storeIndex].chats;
-    }
-
-    this.join(this.currentUser.name, this.roomId);
-  }
-
-  join(username: string, roomId: string): void {
-    this.chatService.joinRoom({user: username, room: roomId});
-  }
+ 
 
   sendMessage(): void {
-
-    console.log(this.currentUser);
     this.chatService.sendMessage({
       user: this.currentUser.name,
       room: this.roomId,
@@ -152,5 +139,24 @@ export class HomeComponent implements OnInit {
 
     this.chatService.setStorage(this.storageArray);
     this.messageText = '';
+  }
+  selectUserHandler(phone: string): void {
+    this.selectedUser = this.userList.find(user => user.phone === phone);
+    this.roomId = this.selectedUser.roomId[this.currentUser.id];
+    this.messageArray = [];
+
+    this.storageArray = this.chatService.getStorage();
+    const storeIndex = this.storageArray
+      .findIndex((storage) => storage.roomId === this.roomId);
+
+    if (storeIndex > -1) {
+      this.messageArray = this.storageArray[storeIndex].chats;
+    }
+
+    this.join(this.currentUser.name, this.roomId);
+  }
+
+  join(username: string, roomId: string): void {
+    this.chatService.joinRoom({user: username, room: roomId});
   }
 }

@@ -1,3 +1,66 @@
+<p>Profile works</p>
+
+<section class="main-content" id="main-content">
+    <div class="content-wrapper">
+     <div class="container">
+        <div class="row">
+          <div class="col-lg-12 ml-1">
+            <h4><b>My Account</b></h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="mode-select-box shadow p-3 bdr-20 bg-white">
+              <div class="row">
+                <div class="col-lg-6 mb-2">
+                  <!-- <label>Personal Details</label> -->
+                  <!-- <ul class="list-group">
+                    <li class="list-group-item1"><small><b>First Name</b></small></li>
+                    <li class="list-group-item1">Dapibus ac facilisis in</li>
+                    <li class="list-group-item1"><small><b>Last Name</b></small></li>
+                    <li class="list-group-item1">Porta ac consectetur ac</li>
+                    
+                  </ul> -->
+                  <form class="form-signin">
+                    <h2 class="form-signin-heading">Personal Details</h2>
+                    <label class="list-group-item1">First Name</label>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus value="ABC" [disabled]="disableForm">
+                    <label class="list-group-item1">Last Name</label>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required  [disabled]="disableForm">
+                  
+                    <h2 class="form-signin-heading">LogIn Details</h2>
+               
+                    <label class="list-group-item1">Email</label>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required  [disabled]="disableForm">
+                    <label class="list-group-item1">Password</label>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required  [disabled]="disableForm">
+                    <div class="row">
+                      <div class="col-lg-6 mb-2" *ngIf="!disableForm">
+                        <button class="btn bg-dark-blue form-control btn-lg h-40 bdr-40" type="button" (click)="save()">Save profile details</button>
+                      </div>
+                      <div class="col-lg-6 mb-2" *ngIf="disableForm">
+                        <button class="btn bg-dark-blue form-control btn-lg h-40 bdr-40" type="button" (click)="edit()">Edit profile details</button>
+                      </div>
+                      <div class="col-lg-3 mb-2" *ngIf="!disableForm">
+                        <button class="btn" type="button" (click)="edit()">Cancel</button>
+                      </div>
+                    </div>
+              
+                </form>
+                </div>
+                
+              </div>
+            </div>
+           
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
 <div class="container" *ngIf="currentUser; else loggedOut">
     <header class="jumbotron">
       <h3>

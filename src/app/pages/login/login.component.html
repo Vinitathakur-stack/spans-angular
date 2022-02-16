@@ -142,7 +142,7 @@
             <select name="membership" class="form-control" (change)="changemembership()" [(ngModel)]="form.membership"
             required #membership="ngModel">
                 <option disabled>Select Membership</option>
-                <option *ngFor="let web of membershipList">{{web}}</option>
+                <option *ngFor="let member of membershipList">{{member}}</option>
             </select>
             <div
             class="alert alert-danger"
@@ -155,7 +155,7 @@
         <a class="for-pass d-block f-black mt-2 mb-4 underline" href="#"
         >Forgot your password ?</a>
         <div class="form-group">
-          <button class="btn btn-primary btn-block">
+          <button class="btn bg-dark-blue form-control btn-lg h-40 bdr-40">
             Login
           </button>
         </div>

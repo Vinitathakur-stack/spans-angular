@@ -16,6 +16,5 @@ export class TokenStorageService {
     localStorage.setItem("username", data.Id);
     localStorage.setItem("email", data.Name);
     localStorage.setItem("name", data.Email);
-   
   }
 }

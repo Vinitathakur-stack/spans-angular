@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 currentUser:any;
+disableForm=true;
   constructor() { }
 
   ngOnInit(): void {
   }
+save(){
 
+}
+edit(){
+  this.disableForm = false;
+}
 }
