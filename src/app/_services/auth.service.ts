@@ -12,14 +12,9 @@ export class AuthService {
  
 		login(data:any):Observable<any>{
       console.log(data);
-      return this.apiService.makeHttpRequest('login','post',data,true);
+      return this.apiService.makeHttpRequest('api/login','post',data,true);
 
     }
 
-
-  //   private getError(error: Response): Observable<any>{
-  //     console.log(error);
-  //     return Observable.throw(error.json() || 'Server Issue');
-  // }
 
 }

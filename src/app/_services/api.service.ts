@@ -31,10 +31,6 @@ export class ApiService {
       .append('Access-Control-Allow-Methods', 'GET')
       .append('Access-Control-Allow-Origin', '*');
 
-console.log(url);
-console.log(type);
-console.log(data);
-console.log(isLoggedIn);
 		if (type == 'post') {
 			httpRequest = this.http.post(url, data,{headers});
 		} else {
