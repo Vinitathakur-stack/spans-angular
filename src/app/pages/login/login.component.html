@@ -1,4 +1,4 @@
-<!-- <section class="main-content" id="main-content">
+<section class="main-content" id="main-content">
   <div class="login-wrapper">
     <div class="login-box mt-5">
       <div
@@ -9,72 +9,108 @@
         <p>Please sign into your account</p>
       </div>
       <div class="login-content">
-        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-          <div class="form-group mb-3"> 
-            <label for="">Username</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter usernamame" name="username"
-              [(ngModel)]="form.username"
-              required
-              #username="ngModel"
-            />
-          </div>
-          <div class="form-group mb-3">
-            <label for="">Password</label>
-            <!-- <div class="pass-box relative">
-              <input type="password" class="form-control" />
-              <div class="eye-box absolute">
-                <img src="../../../../assets/images/eye.svg" />
-              </div>
-            </div> -->
-            <!-- <div class="input-group">
-              <input
-                [type]="fieldTextType ? 'text' : 'password'"
-                class="form-control"
-                formControlName="password"
-              />
-              <div class="input-group-append">
-                <span class="input-group-text">
-                  <i class="fa fa-eye-slash"
-                  [ngClass]="{
-                    'fa-eye-slash': !fieldTextType,
-                    'fa-eye': fieldTextType
-                  }"
-                  (click)="toggleFieldTextType()"
-                ></i>
-                </span>
-             </div>
-          </div>
-          </div>
-        
-          <div class="form-group mb-3">
-            <label for="">Select your membership role :</label>
-            <select class="form-select form-control">
-              <option>Family</option>
-            </select>
-          </div>
-          <a class="for-pass d-block f-black mt-2 mb-4 underline" href="#"
-            >Forgot your password ?</a
+    <form *ngIf="!isLoggedIn" name="form"  (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"  novalidate >
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="form.username"
+            required
+            #username="ngModel"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="username.errors && f.submitted"
           >
-          <div class="form-group mt-2">
-            <button
-              type="button"
-              class="btn bg-dark-blue form-control btn-lg h-40 bdr-40"
-            >
-              Login
-            </button>
+            Username is required!
           </div>
-        </form>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-group">
+            <input
+            [type]="fieldTextType ? 'text' : 'password'"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            #password="ngModel"
+          />
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fa fa-eye-slash"
+              [ngClass]="{
+                'fa-eye-slash': !fieldTextType,
+                'fa-eye': fieldTextType
+              }"
+              (click)="toggleFieldTextType()"
+            ></i>
+            </span>
+         </div>
+       
+          </div>
+          
+          
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="password.errors && f.submitted"
+          >
+            <div *ngIf="password.errors['required']">Password is required</div>
+            <div *ngIf="password.errors['minlength']">
+              Password must be at least 6 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="membership">Select your membership role :</label>
+            <select name="membership" class="form-control" (change)="changemembership()" [(ngModel)]="form.membership"
+            required #membership="ngModel">
+                <option disabled>Select Membership</option>
+                <option *ngFor="let member of membershipList">{{member}}</option>
+            </select>
+            <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="membership.errors && f.submitted"
+          >
+          Membership is required!
+          </div>
+        </div>
+        <a class="for-pass d-block f-black mt-2 mb-4 underline" href="#"
+        >Forgot your password ?</a>
+        <div class="form-group">
+          <button class="btn bg-dark-blue form-control btn-lg h-40 bdr-40">
+            Login
+          </button>
+        </div>
+        <div class="form-group">
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && isLoginFailed"
+          >
+            Login failed: {{ errorMessage }}
+          </div>
+        </div>
+      </form>
+  
+      <div class="alert alert-success" *ngIf="isLoggedIn">
+        Logged in as {{ roles }}.
+      </div>
       </div>
     </div>
   </div>
-</section> --> 
+</section> 
+<!-- 
+<section class="main-content" id="main-content">
+  <div class="login-wrapper">
+    <div class="login-box mt-5">
 
-
-<div class="col-md-12">
-    <div class="card card-container">
       <div class="login-header text-center d-flex flex-column align-items-center justify-content-around bg-dark-light"  >
       <h5 class="box-heading">Welcome To</h5>
       <img src="../../../../assets/images/logo.png" class="h-70" />
@@ -173,5 +209,7 @@
       <div class="alert alert-success" *ngIf="isLoggedIn">
         Logged in as {{ roles }}.
       </div>
-    </div>
-  </div>
+    
+</div>
+</div>
+</section> -->
