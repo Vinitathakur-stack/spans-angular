@@ -18,7 +18,8 @@ import { FooterComponent } from './sub-component/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ChatComponent } from './pages/chat/chat.component';
-import { ResetPasswordComponent } from './pages/reset-password/reset-password.component'
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component'
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
     HeaderComponent,
     FooterComponent,
     ChatComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
