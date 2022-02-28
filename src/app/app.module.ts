@@ -16,7 +16,9 @@ import { HeaderComponent } from './sub-component/header/header.component';
 import { FooterComponent } from './sub-component/footer/footer.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr'
+import { ToastrModule } from 'ngx-toastr';
+import { ChatComponent } from './pages/chat/chat.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component'
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { ToastrModule } from 'ngx-toastr'
     ProfileComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ChatComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

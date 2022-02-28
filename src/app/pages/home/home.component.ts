@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ChatService } from '../../_services/chat.service';
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { ChatService } from '../../_services/chat.service';
 export class HomeComponent implements OnInit {
   familyList: any = ['Family', 'Navigator', 'XYZ']
   preferdmode:any = ['Contact', 'Email','Web'];
-  preferedMode:string;
+  preferedMode = this.preferdmode[0];
   
   isLoggedIn = true;
   public roomId: string;
@@ -92,10 +93,12 @@ export class HomeComponent implements OnInit {
   }
   changefamily(e){
     console.log(e.target.value);
-    if(e.target.value== 'Family'){
+    if(e.target.value == 'Family'){
       this.preferedMode = this.preferdmode[0];
+      this.selectUserHandler('9876556789');
     }else{
       this.preferedMode = this.preferdmode[1];
+      this.selectUserHandler('9988776655');
     }
   }
 
@@ -120,37 +123,4 @@ export class HomeComponent implements OnInit {
     this.chatService.joinRoom({user: username, room: roomId});
   }
 
-  sendMessage(): void {
-
-    console.log(this.currentUser);
-    this.chatService.sendMessage({
-      user: this.currentUser.name,
-      room: this.roomId,
-      message: this.messageText
-    });
-
-    this.storageArray = this.chatService.getStorage();
-    const storeIndex = this.storageArray
-      .findIndex((storage) => storage.roomId === this.roomId);
-
-    if (storeIndex > -1) {
-      this.storageArray[storeIndex].chats.push({
-        user: this.currentUser.name,
-        message: this.messageText
-      });
-    } else {
-      const updateStorage = {
-        roomId: this.roomId,
-        chats: [{
-          user: this.currentUser.name,
-          message: this.messageText
-        }]
-      };
-
-      this.storageArray.push(updateStorage);
-    }
-
-    this.chatService.setStorage(this.storageArray);
-    this.messageText = '';
-  }
 }

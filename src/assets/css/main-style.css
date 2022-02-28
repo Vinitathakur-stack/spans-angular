@@ -55,14 +55,29 @@ body {
 .f-16 {
   font-size: 16px !important;
 }
+.f-26 {	
+  font-size: 26px !important;	
+}	
+.f-33 {	
+  font-size: 33px;	
+}
 .f-black {
   color: #333 !important;
 }
 .f-gray {
   color: #b4adad;
 }
+	.f-26 {	
+  font-size: 26px !important;	
+}	
+.f-33 {	
+  font-size: 33px;	
+}
 .mt-40 {
   margin-top: 40px;
+}
+.mt-25 {	
+  margin-top: 25px;	
 }
 
 .bdr-20 {
@@ -79,6 +94,9 @@ p {
 }
 .light-green {
   background: #d3f2d8;
+}
+.dark-blue {	
+  color: #007ca0;	
 }
 .lighter-bluish {
   background: #e8f8fc;
@@ -127,6 +145,15 @@ p {
 }
 .underline {
   text-decoration: underline;
+}
+.w-100p {	
+  width: 100px;	
+}	
+.opac {	
+  opacity: 0.4;	
+}	
+.op-0 {	
+  opacity: 0;	
 }
 .custom-radio {
   height: 20px;
@@ -306,6 +333,7 @@ label {
 select,
 input {
   border-radius: 5rem !important;
+  height: 44px !important;	
   /* height: 44px; */
 }
 .drop-heading {
@@ -389,6 +417,9 @@ nav {
   border-radius: 20px;
   padding: 4px;
   border: 1px solid #33333340;
+  height: 44px;	
+  display: flex;	
+  align-items: center;
 }
 .calender input {
   border-radius: 20px;
@@ -411,7 +442,8 @@ nav {
   border: 5px solid #fff;
   border-radius: 15px;
   padding: 0;
-  min-width: 416px;
+ /* // min-width: 416px; */
+  width: 416px;	
 }
 
 .adiv {
@@ -540,6 +572,20 @@ nav {
   background-color: #3dc753 !important;
 }
 
+.password-hint li i {
+  margin-right: 6px;
+}
+.password-hint li {
+  margin-bottom: 10px;
+}
+.password-hint ul li .fa-check {
+  color: #3cbe78;
+}
+.password-hint ul li .fa-times {
+  color: #f13f4d;
+}
+
+
 .checkmark:after {
   content: "";
   position: absolute;
@@ -581,10 +627,28 @@ nav {
 .modal-backdrop {
   background-color: #1579c0 !important;
 }
+
+.profile-box img {	
+  /* height: 290px;	
+  width: 290px; */	
+}	
+.edit-img {	
+  top: 50%;	
+  left: 50%;	
+  transform: translate(-50%, -50%);	
+}	
+.edit-img img {	
+  height: 74px;	
+}
 /* media */
 
 @media (max-width: 768px) {
   .tab-box .nav-link {
-    padding: 14px;
+    padding: 7px;	
+    font-size: 12px;	
+  }	
+  .tab-box {	
+    display: flex;	
+    align-items: center;
   }
 }
