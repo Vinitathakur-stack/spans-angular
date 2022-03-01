@@ -18,13 +18,13 @@ export class AuthService {
 	 * @desc login user
 	 */
 	login(data:any):Observable<any>{
-   
+   console.log("data",data);
       this.loggedIn.next(true);
       this.currentUser.next(this.userInfo.user); // <-- pump the value in here
       return this.apiService.makeHttpRequest('login','post',data,true);
 
     }
-    	/**
+    /**
 	 * @desc create user password
 	 */
 	change_password(data): Observable<any> {
@@ -34,6 +34,17 @@ export class AuthService {
 			data
 		);
 	}
+
+      /**
+	 * @desc forgot password
+	 */
+  forgot_password(data) {
+    return this.apiService.makeHttpRequest(
+        "forgot-password",
+        "post",
+        data
+    );
+}
 
 
 

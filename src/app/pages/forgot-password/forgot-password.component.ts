@@ -1,23 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../_services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-  form: FormGroup;
+	forgotPasswordForm: FormGroup;
 	is_unique_email: Boolean = false;
 	is_unique_email_msg = '';
 	is_success = false;
+	data:any;
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
+	private router: Router,
+	private toaster: ToastrService,
   ) { }
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group(
+    this.forgotPasswordForm = this.formBuilder.group(
 			{
 				email: new FormControl('', {
 					validators: [
@@ -35,19 +40,23 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   forgotPassword() {
-		this.is_unique_email_msg = '';
-		if (this.form.valid) {
-			// this.authService.forgot_password(this.form.value).subscribe(
-			// 	result => {
-			// 		const response = result;
-			// 		this.is_success = response['status'] !== 'error'
-			// 		this.is_unique_email_msg = !this.is_success ? 'This Email address does not exist in system..' : '';
-			// 	},
-			// 	err => {
-			// 		console.log(err);
-			// 	}
-			// );
-		}
+
+	if (this.forgotPasswordForm.valid) {
+            this.authService.forgot_password(this.forgotPasswordForm.value).subscribe(
+                result => {
+                    this.data = result;
+                    result.status == 'error'?this.toaster.error(result.msg) : this.toaster.success(result.msg);
+                    if (this.data.status != 'error') {
+                        this.router.navigate(["/"]);
+                    }
+                },
+                err => {
+					this.toaster.error(err); 
+                }
+            );
+        } else {
+           // this.validateAllFormFields(this.forgotPasswordForm);
+        }
 	}
   
 
