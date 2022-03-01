@@ -93,6 +93,7 @@ save() {
               }
           },
           err => {
+            this.toastr.error(err)
               console.log(err);
           }
       );
