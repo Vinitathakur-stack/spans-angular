@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { AuthService } from '../../_services/auth.service';
+import { ToastrService } from "ngx-toastr";
+
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
@@ -23,9 +27,16 @@ export class ResetPasswordComponent implements OnInit {
         is_number: false,
     };
     allowed_symbol = "$@!%*?&";
-    overlayHidden: boolean = false;
-  //  logoSrc: any = CONSTANTS.STUDY_SITE == 'ORCHID' ? 'assets/images/login_logo_orchid.png' : 'assets/images/login_logo.png';
-  constructor(private router: Router,private formBuilder: FormBuilder,) { }
+  constructor(		
+    private route: ActivatedRoute,
+		private router: Router,
+    private formBuilder: FormBuilder,
+    private authService:AuthService,
+    public toastr: ToastrService
+    ) {
+    this.route.params.subscribe(params => this.code = params.code);
+    console.log(this.code);
+   }
 
   ngOnInit(): void {
     this.resetPasswordForm = this.formBuilder.group(
@@ -43,6 +54,7 @@ export class ResetPasswordComponent implements OnInit {
   match_password(g: FormGroup) {
     return g.get('password').value === g.get('confirm_password').value ? null : { match_password: true };
 }
+
   checkPassword(data) {
     let password = data.value;
     this.is_password_valid = {
@@ -66,8 +78,38 @@ login() {
 showPassword(evt) {
     this.passType = evt.target.checked ? 'text' : 'password';
 }
-save(){
+save() {
+  if (this.resetPasswordForm.valid && this.check_password_validaty()) {
+      let input = JSON.parse(JSON.stringify(this.resetPasswordForm.value));
+      input.code = this.code;
+      input.password = encodeURIComponent(this.resetPasswordForm.value['password']);
+      input.confirm_password = encodeURIComponent(this.resetPasswordForm.value['confirm_password']);
+      this.authService.change_password(input).subscribe(
+          result => {
+              result.status == 'error'? this.toastr.error(result.msg, result.status) : this.toastr.success(result.msg, result.status);
+              if (result.status === 'success') {
+              
+                 // this.router.navigate(["/home"]);
+              }
+          },
+          err => {
+              console.log(err);
+          }
+      );
+  } else {
+      // this.validateAllFormFields(this.form);
+  }
+}
+check_password_validaty() {
+  let p = this.is_password_valid;
 
+  if (p.is_not_symbol) {
+      let error = 'Allowed special characters are ' + this.allowed_symbol + ' only.'
+      this.toastr.error(error, 'error');
+      this.is_password_valid.is_symbol = !1;
+  }
+
+  return (p.is_length && p.is_space && p.is_capital && p.is_small && p.is_symbol && p.is_number && !p.is_not_symbol);
 }
 
 }

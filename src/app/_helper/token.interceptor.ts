@@ -6,13 +6,24 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ApiService } from '../_services/api.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private apiHelper:ApiService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return next.handle(request);
+          let obj = {
+            'Content-Type': 'application/x-www-form-urlencoded',
+           // Site: CONSTANTS.STUDY_SITE,
+           /// Authorization: 'Basic YXBwVXNlcjpTUEFOU0AyMDIy',
+        };
+       // this.apiHelper.isAuthenticated() && (obj['Token'] = this.apiHelper.getToken() || '');
+        request = request.clone({
+            setHeaders: obj,
+        });
+        console.log("requestInce", request);
+        return next.handle(request);
   }
 }

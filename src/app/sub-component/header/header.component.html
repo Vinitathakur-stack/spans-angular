@@ -19,19 +19,14 @@
           <!-- <li class="nav-item">Register</li> -->
           <li class="nav-item dropdown" *ngIf="isLoggedIn$ | async as isLoggedIn" [routerLink]="['/profile']">
             <a
-              class="nav-link dropdown-toggle f-black"
+              class="nav-link f-black d-flex align-items-center"
               href="#"
               role="button"
               data-bs-toggle="dropdown"
               >Hi Jane
-              <span class="profile-img"
+              <span class="profile-img ms-2"	
                 ><img src="../../../../assets/images/profile.png" /></span
             ></a>
-            <!-- <ul class="dropdown-menu dropdown-menu-right">
-              <li><a class="dropdown-item" href="#">Link</a></li>
-              <li><a class="dropdown-item" href="#">Another link</a></li>
-              <li><a class="dropdown-item" href="#">A third link</a></li>
-            </ul> -->
           </li>
         </ul>
       </div>
@@ -40,34 +35,3 @@
 </section>
 
 <!-- header ends -->
-
-    <!-- <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a href="#" class="navbar-brand"></a>
-      <ul class="navbar-nav mr-auto" routerLinkActive="active">
-        <li class="nav-item">
-          <a href="/home" class="nav-link" routerLink="home">Home </a>
-        </li>
-       
-        <li class="nav-item">
-          <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-        </li>
-      </ul>
-  
-      <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-        <li class="nav-item">
-          <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
-        </li>
-        <li class="nav-item">
-          <a href="/login" class="nav-link" routerLink="login">Login</a>
-        </li>
-      </ul>
-  
-      <ul class="navbar-nav ml-auto" >
-        <li class="nav-item">
-          <a href="/profile" class="nav-link" routerLink="profile">{{ username?username :"rrrr" }}</a>
-        </li>
-        <li class="nav-item">
-          <a href class="nav-link" (click)="logout()">LogOut</a>
-        </li>
-      </ul>
-    </nav> -->

@@ -14,14 +14,27 @@ export class AuthService {
     return this.loggedIn.asObservable();
   }
   constructor(public apiService:ApiService) { }
- 
-		login(data:any):Observable<any>{
-      console.log(data+"ppp");
+    /**
+	 * @desc login user
+	 */
+	login(data:any):Observable<any>{
+   
       this.loggedIn.next(true);
       this.currentUser.next(this.userInfo.user); // <-- pump the value in here
-      return this.apiService.makeHttpRequest('api/login','post',data,true);
+      return this.apiService.makeHttpRequest('login','post',data,true);
 
     }
+    	/**
+	 * @desc create user password
+	 */
+	change_password(data): Observable<any> {
+		return this.apiService.makeHttpRequest(
+			"reset-password",
+			"post",
+			data
+		);
+	}
+
 
 
 }

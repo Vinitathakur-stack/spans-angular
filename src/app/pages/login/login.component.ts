@@ -30,55 +30,41 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     const { username, password,membership } = this.form;
     console.log(this.form);
-    this.form.email = 'Vinita5@gmail.com';
-    this.form.password = '1234566666';
+    // this.form.email = 'Vinita5@gmail.com';
+    // this.form.password = '1234566666';
     
     this.authService.login(this.form).subscribe(response => {
-    
-      // if (response["message"] == "success") {
+    console.log(response);
+      if (response["message"] == "success") {
 
-      //   console.log(response["data"]);
-      //   this.tokenStorage.saveToken(response['data']['Token']);
-      //   this.tokenStorage.saveUser(response["data"]);
+        console.log(response["data"]);
+        this.tokenStorage.saveToken(response['data']['Token']);
+        this.tokenStorage.saveUser(response["data"]);
       
-      //   let path = "/home";
-			// 			this.router.navigate([path]).then(() => {
-			// 				this.toastr.success(response['message']);
-			// 			});
+        let path = "/home";
+						this.router.navigate([path]).then(() => {
+							this.toastr.success(response['msg']);
+						});
 
-      // }else {
-      //   this.toastr.error(response['message']);
-      // }
-      let path = "/home";
-      this.router.navigate([path]).then(() => {
-        this.toastr.success('successfully logged');
-      });
+      }else {
+        this.toastr.error(response['msg']);
+      }
+      // let path = "/home";
+      // this.router.navigate([path]).then(() => {
+      //   this.toastr.success('successfully logged');
+      // });
     });
-    let path = "/home";
-    this.router.navigate([path]).then(() => {
-      this.toastr.success('successfully logged');
-    });
-  }
-    // this.authService.login(username, password).subscribe({
-    //   next: data => {
-    //     this.tokenStorage.saveToken(data.accessToken);
-    //     this.tokenStorage.saveUser(data);
-
-    //     this.isLoginFailed = false;
-    //     this.isLoggedIn = true;
-    //     this.roles = this.tokenStorage.getUser().roles;
-    //     this.reloadPage();
-    //   },
-    //   error: err => {
-    //     this.errorMessage = err.error.message;
-    //     this.isLoginFailed = true;
-    //   }
+    // let path = "/home";
+    // this.router.navigate([path]).then(() => {
+    //   this.toastr.success('successfully logged');
     // });
+  }
+
   
   // <!-- Switching method -->
-toggleFieldTextType() {
-  this.fieldTextType = !this.fieldTextType;
-}
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
 
   reloadPage(): void {
     window.location.reload();
