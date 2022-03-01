@@ -81,15 +81,15 @@ showPassword(evt) {
 save() {
   if (this.resetPasswordForm.valid && this.check_password_validaty()) {
       let input = JSON.parse(JSON.stringify(this.resetPasswordForm.value));
-      input.code = this.code;
+    //  input.code = this.code;
+      input.code = '1thQ6.hcM7Dt237apva7N.b147182af3590784c3';
       input.password = encodeURIComponent(this.resetPasswordForm.value['password']);
       input.confirm_password = encodeURIComponent(this.resetPasswordForm.value['confirm_password']);
       this.authService.change_password(input).subscribe(
           result => {
               result.status == 'error'? this.toastr.error(result.msg, result.status) : this.toastr.success(result.msg, result.status);
               if (result.status === 'success') {
-              
-                 // this.router.navigate(["/home"]);
+                this.router.navigate(["/"]);
               }
           },
           err => {
