@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ChatService } from "src/app/service/chat.service";
+
 
 @Component({
     selector: "app-home",
@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
     preferedMode = this.preferdmode[0];
 
     isLoggedIn = true;
-    public roomId: string;
+    
     public messageText: string;
 
     public messageArray: { user: string; message: string }[] = [];
@@ -23,110 +23,25 @@ export class HomeComponent implements OnInit {
     public currentUser;
     public selectedUser;
 
-    public userList = [
-        {
-            id: 1,
-            name: "The Swag Coder",
-            phone: "9876598765",
-            image: "assets/user/user-1.png",
-            roomId: {
-                2: "room-1",
-                3: "room-2",
-                4: "room-3",
-            },
-        },
-        {
-            id: 2,
-            name: "Wade Warren",
-            phone: "9876543210",
-            image: "assets/user/user-2.png",
-            roomId: {
-                1: "room-1",
-                3: "room-4",
-                4: "room-5",
-            },
-        },
-        {
-            id: 3,
-            name: "Albert Flores",
-            phone: "9988776655",
-            image: "assets/user/user-3.png",
-            roomId: {
-                1: "room-2",
-                2: "room-4",
-                4: "room-6",
-            },
-        },
-        {
-            id: 4,
-            name: "Dianne Russell",
-            phone: "9876556789",
-            image: "assets/user/user-4.png",
-            roomId: {
-                1: "room-3",
-                2: "room-5",
-                3: "room-6",
-            },
-        },
-    ];
+  
 
-    constructor(private chatService: ChatService) {
-        this.currentUser = this.userList.find(
-            (user) => user.phone === "9876598765"
-        );
-        this.userList = this.userList.filter(
-            (user) => user.phone !== "9876598765"
-        );
+    constructor() {
+       
     }
 
     ngOnInit(): void {
-        this.chatService
-            .getMessage()
-            .subscribe(
-                (data: { user: string; room: string; message: string }) => {
-                    // this.messageArray.push(data);
-                    if (this.roomId) {
-                        setTimeout(() => {
-                            this.storageArray = this.chatService.getStorage();
-                            const storeIndex = this.storageArray.findIndex(
-                                (storage) => storage.roomId === this.roomId
-                            );
-                            this.messageArray =
-                                this.storageArray[storeIndex].chats;
-                        }, 500);
-                    }
-                }
-            );
+    
     }
     changefamily(e) {
         console.log(e.target.value);
         if (e.target.value == "Family") {
             this.preferedMode = this.preferdmode[0];
-            this.selectUserHandler("9876556789");
+        
         } else {
             this.preferedMode = this.preferdmode[1];
-            this.selectUserHandler("9988776655");
+           
         }
     }
 
-    selectUserHandler(phone: string): void {
-        this.selectedUser = this.userList.find((user) => user.phone === phone);
-        this.roomId = this.selectedUser.roomId[this.currentUser.id];
-        this.messageArray = [];
-
-        this.storageArray = this.chatService.getStorage();
-        const storeIndex = this.storageArray.findIndex(
-            (storage) => storage.roomId === this.roomId
-        );
-
-        if (storeIndex > -1) {
-            this.messageArray = this.storageArray[storeIndex].chats;
-        }
-
-        this.join(this.currentUser.name, this.roomId);
-    }
-
-    join(username: string, roomId: string): void {
-        this.chatService.joinRoom({ user: username, room: roomId });
-    }
+ 
 }

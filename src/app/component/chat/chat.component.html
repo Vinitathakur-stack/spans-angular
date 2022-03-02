@@ -1,92 +1,61 @@
-<p>chat works!</p>
 <div class="chat-box">
-    <div class="my-2">
-      <h5 class="box-heading p-3">Chat with jane smith</h5>
-    </div>
-    <div class="d-flex justify-content-center">
-      <div class="card shadow">
-      
-       
-          
-        <div class="row">
-
-          <!-- <div class="col-md-4">
-      
-            <div class="user-list-card">
-              <div class="user-card"
-                   [ngClass]="user?.phone === selectedUser?.phone && 'active'"
-                   *ngFor="let user of userList"
-                   (click)="selectUserHandler(user?.phone)"
-              >
-      
-                <img [src]="user?.image"
-                     [alt]="user?.name"
-                     class="avatar"
-                />
-                <p class="username">{{user?.name}}</p>
-      
-              </div>
+  <div class="my-2">
+    <h5 class="box-heading p-3">Chat with jane smith</h5>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="card shadow">
+      <div class="chat-area scroll-bar">
+        <div class="d-flex justify-content-end p-3 send-msg">
+          <div class="d-flex flex-column">
+            <div class="chat p-3">
+              <p>Hello and thankyou for visiting</p>
             </div>
-      
-          </div> -->
-          <div class="col-md-8">
-      
-            <div class="chat-container">
-              <!-- <ng-container *ngIf="selectedUser"> -->
-                <ng-container >
-                <div class="chat-header">
-      
-                  <!-- <img [src]="selectedUser?.image"
-                       [alt]="selectedUser?.name"
-                       class="avatar"
-                  /> -->
-                  <!-- <p class="username">{{selectedUser?.name}}</p> -->
-                  <p class="username">Name</p>
-      
-                </div>
-      
-                <div class="chat-body">
-                  <!-- <div *ngFor="let item of messageArray"
-                       [ngClass]="'same-user'"
-                  >
-                    <p class="message-container">{{item?.message}}</p>
-                  </div> -->
-                </div>
-      
-                <div class="chat-footer">
-      
-                  <div class="row">
-                    <div class="col-md-10">
-                      <div class="form-group mb-0">
-                        <!-- <input type="text"
-                               placeholder="Type a message"
-                               class="form-control"
-                               [(ngModel)]="messageText"
-                               (keyup)="$event.keyCode === 13 && sendMessage()"
-                        /> -->
-                        <input type="text"
-                        placeholder="Type a message"
-                        class="form-control"
-                        [(ngModel)]="messageText"
-                        (keyup)="$event.keyCode === 13 && sendMessage()"
-                 />
-                      </div>
-                    </div>
-      
-                    <div class="col-md-2 text-center align-self-center">
-                      <button class="btn btn-primary btn-sm px-3"
-                              (click)="sendMessage()">Send
-                      </button>
-                    </div>
-                  </div>
-      
-                </div>
-              </ng-container>
-            </div>
-      
+            <span class="mt-4 ms-3">Today</span>
           </div>
-      
+        </div>
+        <div
+          class="d-flex justify-content-start w-80 p-3 recieve-msg"
+        >
+          <div class="d-flex flex-column">
+            <div class="chat p-3">
+              <p>
+                Hello and thankyou for visiting Hello and thankyou for
+                visiting Hello and thankyou for visiting Hello and
+                thankyou for visiting
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end p-3 recieve-msg">
+          <div class="d-flex flex-column">
+            <div class="chat p-3">
+              <p>Hello and thankyou for</p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-start w-80 p-3 recent-msg">
+          <div class="d-flex flex-column">
+            <div class="chat yellow-bg p-3">
+              <p>
+                Hello and thankyou for visiting Hello and thankyou for
+                visiting Hello and thankyou for visiting Hello and
+                thankyou for visiting
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group px-3 pb-2 pt-2">
+        <div class="send-chat relative">
+          <textarea
+            class="w-80 pt-3 ps-3 rounded-pill ctext mh-46"
+            placeholder="Type your message"
+          ></textarea>
+          <div class="absolute chat-icon">
+            <i class="fa fa-solid fa-paper-plane"></i>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>

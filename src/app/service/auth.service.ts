@@ -8,12 +8,12 @@ import { BehaviorSubject, Subject } from "rxjs";
 })
 export class AuthService {
     private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
-        true
+        false
     );
     private currentUser = new BehaviorSubject<any>(null);
     userInfo: any = "";
     get isLoggedIn() {
-        return this.loggedIn.asObservable();
+        return this.loggedIn;
     }
     constructor(public HelperService: HelperService) {}
     /**
@@ -44,6 +44,16 @@ export class AuthService {
             "forgot-password",
             "post",
             data
+        );
+    }
+    // logout researcher and participant//
+      logout(): Observable<any> {
+        this.loggedIn.next(false);
+        return this.HelperService.makeHttpRequest(
+            "logout",
+            "get",
+            {},
+            true
         );
     }
 }
