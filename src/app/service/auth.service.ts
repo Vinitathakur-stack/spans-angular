@@ -16,6 +16,16 @@ export class AuthService {
         return this.loggedIn;
     }
     constructor(public HelperService: HelperService) {}
+
+    isAuthenticated(){
+        const token = localStorage.getItem('token');
+        // Check whether the user is logged In or not
+        // true or false
+        if(this.loggedIn.getValue() == true){
+            return true;
+        }
+        return false;
+    }
     /**
      * @desc login user
      */

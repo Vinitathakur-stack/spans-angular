@@ -8,9 +8,9 @@ import { LoginComponent } from "./component/login/login.component";
 import { HomeComponent } from "./component/home/home.component";
 
 import { ProfileComponent } from "./component/profile/profile.component";
-
+import { AuthGuard } from "./guard/auth.guard";
 const routes: Routes = [
-    { path: "home", component: HomeComponent },
+    { path: "home", component: HomeComponent,canActivate :[AuthGuard] },
     { path: "", component: LoginComponent },
     { path: "register", component: RegisterComponent },
     { path: "reset-password/:code", component: ResetPasswordComponent },
