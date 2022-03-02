@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
                     console.log(response["data"]);
                     this.tokenStorage.saveToken(response["token"]);
                     this.tokenStorage.saveUser(response["userDetails"]);
-
+                 
                     let path = "/home";
                     this.router.navigate([path]).then(() => {
                         this.toastr.success(response["msg"]);

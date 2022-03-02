@@ -7,32 +7,16 @@ import { BehaviorSubject, Subject } from "rxjs";
     providedIn: "root",
 })
 export class AuthService {
-    private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
-        false
-    );
+
     private currentUser = new BehaviorSubject<any>(null);
     userInfo: any = "";
-    get isLoggedIn() {
-        return this.loggedIn;
-    }
-    constructor(public HelperService: HelperService) {}
 
-    isAuthenticated(){
-        const token = localStorage.getItem('token');
-        // Check whether the user is logged In or not
-        // true or false
-        if(this.loggedIn.getValue() == true){
-            return true;
-        }
-        return false;
-    }
+    constructor(public HelperService: HelperService) {}
     /**
      * @desc login user
      */
     login(data: any): Observable<any> {
-        console.log("data", data);
-        this.loggedIn.next(true);
-        this.currentUser.next(this.userInfo.user); // <-- pump the value in here
+       
         return this.HelperService.makeHttpRequest("login", "post", data, true);
     }
     /**
@@ -58,7 +42,6 @@ export class AuthService {
     }
     // logout researcher and participant//
       logout(): Observable<any> {
-        this.loggedIn.next(false);
         return this.HelperService.makeHttpRequest(
             "logout",
             "get",

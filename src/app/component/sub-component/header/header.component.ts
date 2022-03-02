@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { AuthService } from "src/app/service/auth.service";
+import { HelperService } from "../../../service/helper.service";
 @Component({
     selector: "app-header",
     templateUrl: "./header.component.html",
@@ -11,11 +11,10 @@ export class HeaderComponent implements OnInit {
 
     isLoggedIn$: Observable<boolean>;
     username?: string;
-    constructor(private authService: AuthService) {}
+    constructor(private helperService: HelperService) {}
 
     ngOnInit(): void {
-        this.isLoggedIn$ = this.authService.isLoggedIn;
-        console.log(this.isLoggedIn$);
+        this.isLoggedIn$ = this.helperService.isUserLoggedIn;
     }
 
     logout(): void {
