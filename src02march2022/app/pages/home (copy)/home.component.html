@@ -1,0 +1,1203 @@
+<p>home works!</p>
+<section class="main-content" id="main-content">
+    <div class="content-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="mode-select-box shadow p-3 bdr-20 bg-white">
+              <div class="row">
+                <div class="col-lg-6 mb-2">
+                  <label for="">Select family</label>
+                  <div class="form-group">
+                    <select class="form-select form-control custom-select" (change)="changefamily($event)">
+                      
+                      <option *ngFor="let family of familyList">{{family}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-2">
+                  <label for="">Preferd Mode of Contact:( {{preferedMode}} )</label>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="123345"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="col-lg-12">
+                <ul
+                  class="nav nav-pills nav-justified tab-box bg-white"
+                  role="tablist"
+                >
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      data-bs-toggle="pill"
+                      href="#services"
+                      >Services</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#family"
+                      >Family Profile</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#actionp"
+                      >Action Plan</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#notes"
+                      >Notes</a
+                    >
+                  </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div id="services" class="tab-pane active">
+                    <br />
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="white-box mb-3">
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-2"
+                          >
+                            <h5 class="box-heading">Current services</h5>
+                          </div>
+                          <div class="drop-box mb-2">
+                            <div
+                              class="drop-heading"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#content-db"
+                            >
+                              Behaviral Therapy
+                              <span
+                                class="badge rounded-pill light-green float-end me-4 f-black"
+                                >Navigator</span
+                              >
+                              <div
+                                id="content-db"
+                                class="drop-box-inner collapse mt-3"
+                              >
+                                <div
+                                  class="box-head-wrapper d-flex justify-content-between align-items-center"
+                                >
+                                  <h5 class="box-heading-inner light-blue">
+                                    Total Spectrum
+                                  </h5>
+                                  <img
+                                    class="h-20"
+                                    src="../../../../assets/images/cross.svg"
+                                  />
+                                </div>
+                                <div class="table-responsive-sm">
+                                  <table class="custom-table w-100">
+                                    <tr>
+                                      <td>Contact info :</td>
+                                      <td>
+                                        Emily
+                                        <span class="light-blue">etira@edu</span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>Phone number :</td>
+                                      <td>12334445</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Accept medicaid?</td>
+                                      <td>yes</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Phone number :</td>
+                                      <td>12334445</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Services :</td>
+                                      <td>Applied Behaviour Analysis ( ABA )</td>
+                                    </tr>
+                                  </table>
+                                  <div
+                                    class="rating-box d-flex justify-content-between mt-2 pb-2"
+                                  >
+                                    <div class="star-rating">
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                    </div>
+                                    <div class="button-box">
+                                      <a href="#" class="custom-btn"
+                                        >Rating Info</a
+                                      >
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="drop-box mb-2">
+                            <div
+                              class="drop-heading"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#content-db-next"
+                            >
+                              Speech Therapy
+                              <span
+                                class="badge rounded-pill lighter-green float-end me-4 f-black"
+                                >Saga</span
+                              >
+                              <div
+                                id="content-db-next"
+                                class="drop-box-inner collapse mt-3"
+                              >
+                                <div
+                                  class="box-head-wrapper d-flex justify-content-between align-items-center"
+                                >
+                                  <h5 class="box-heading-inner light-blue">
+                                    Total Spectrum
+                                  </h5>
+                                  <img
+                                    class="h-20"
+                                    src="../../../../assets/images/cross.svg"
+                                  />
+                                </div>
+                                <div class="table-responsive-sm">
+                                  <table class="custom-table w-100">
+                                    <tr>
+                                      <td>Contact info :</td>
+                                      <td>
+                                        Emily
+                                        <span class="light-blue">etira@edu</span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>Phone number :</td>
+                                      <td>12334445</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Accept medicaid?</td>
+                                      <td>yes</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Phone number :</td>
+                                      <td>12334445</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Services :</td>
+                                      <td>Applied Behaviour Analysis ( ABA )</td>
+                                    </tr>
+                                  </table>
+                                  <div
+                                    class="rating-box d-flex justify-content-between mt-2 pb-2"
+                                  >
+                                    <div class="star-rating">
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                    </div>
+                                    <div class="button-box">
+                                      <a href="#" class="custom-btn"
+                                        >Rating Info</a
+                                      >
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="drop-box mb-2">
+                            <div
+                              class="drop-heading"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#content-db-last"
+                            >
+                              Geneticist
+                              <span
+                                class="badge rounded-pill lighter-green float-end me-4 f-black"
+                                >Saga</span
+                              >
+                              <div
+                                id="content-db-last"
+                                class="drop-box-inner collapse mt-3"
+                              >
+                                <div
+                                  class="box-head-wrapper d-flex justify-content-between align-items-center"
+                                >
+                                  <h5 class="box-heading-inner light-blue">
+                                    Total Spectrum
+                                  </h5>
+                                  <img
+                                    class="h-20"
+                                    src="../../../../assets/images/cross.svg"
+                                  />
+                                </div>
+                                <div class="table-responsive-sm">
+                                  <table class="custom-table w-100">
+                                    <tr>
+                                      <td>Contact info :</td>
+                                      <td>
+                                        Emily
+                                        <span class="light-blue">etira@edu</span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>Phone number :</td>
+                                      <td>12334445</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Accept medicaid?</td>
+                                      <td>yes</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Phone number :</td>
+                                      <td>12334445</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Services :</td>
+                                      <td>Applied Behaviour Analysis ( ABA )</td>
+                                    </tr>
+                                  </table>
+                                  <div
+                                    class="rating-box d-flex justify-content-between mt-2 pb-2"
+                                  >
+                                    <div class="star-rating">
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                      <i
+                                        class="fa fa-solid fa-star light-blue"
+                                        aria-hidden="true"
+                                      ></i>
+                                    </div>
+                                    <div class="button-box">
+                                      <a href="#" class="custom-btn"
+                                        >Rating Info</a
+                                      >
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="white-box">
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-2"
+                          >
+                            <h5 class="box-heading">Recomended services</h5>
+                            <i
+                              data-bs-toggle="modal"
+                              data-bs-target="#myModal"
+                              class="fa fa-regular c-pointer fa-search bg-light-blue p-1 f-12 rounded-circle"
+                            ></i>
+                          </div>
+                          <div class="custom-scroll-box scroll-bar">
+                            <div class="drop-box mb-2">
+                              <div
+                                class="drop-heading"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#content-db"
+                              >
+                                Behaviral Therapy
+                                <span
+                                  class="badge rounded-pill light-green float-end me-4 f-black"
+                                  >Navigator</span
+                                >
+                                <div
+                                  id="content-db"
+                                  class="drop-box-inner collapse mt-3"
+                                >
+                                  <div
+                                    class="box-head-wrapper d-flex justify-content-between align-items-center"
+                                  >
+                                    <h5 class="box-heading-inner light-blue">
+                                      Total Spectrum
+                                    </h5>
+                                    <img
+                                      class="h-20"
+                                      src="../../../../assets/images/cross.svg"
+                                    />
+                                  </div>
+                                  <div class="table-responsive-sm">
+                                    <table class="custom-table w-100">
+                                      <tr>
+                                        <td>Contact info :</td>
+                                        <td>
+                                          Emily
+                                          <span class="light-blue"
+                                            >etira@edu</span
+                                          >
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>Phone number :</td>
+                                        <td>12334445</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Accept medicaid?</td>
+                                        <td>yes</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Phone number :</td>
+                                        <td>12334445</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Services :</td>
+                                        <td>
+                                          Applied Behaviour Analysis ( ABA )
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    <div
+                                      class="rating-box d-flex justify-content-between mt-2 pb-2"
+                                    >
+                                      <div class="star-rating">
+                                        <i
+                                          class="fa fa-solid fa-star light-blue"
+                                          aria-hidden="true"
+                                        ></i>
+                                        <i
+                                          class="fa fa-solid fa-star light-blue"
+                                          aria-hidden="true"
+                                        ></i>
+                                        <i
+                                          class="fa fa-solid fa-star light-blue"
+                                          aria-hidden="true"
+                                        ></i>
+                                        <i
+                                          class="fa fa-solid fa-star light-blue"
+                                          aria-hidden="true"
+                                        ></i>
+                                        <i
+                                          class="fa fa-solid fa-star light-blue"
+                                          aria-hidden="true"
+                                        ></i>
+                                      </div>
+                                      <div class="button-box">
+                                        <a href="#" class="custom-btn"
+                                          >Rating Info</a
+                                        >
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="drop-box mb-2">
+                              <div
+                                class="drop-heading"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#content-db"
+                              >
+                                Behaviral Therapy
+                                <div
+                                  id="content-db"
+                                  class="drop-box-inner collapse mt-3"
+                                >
+                                  <div
+                                    class="box-head-wrapper d-flex justify-content-between align-items-center"
+                                  >
+                                    <h5 class="box-heading-inner light-blue">
+                                      Total Spectrum
+                                    </h5>
+                                    <img
+                                      class="h-20"
+                                      src="../../../../assets/images/cross.svg"
+                                    />
+                                  </div>
+                                  <div class="table-responsive-sm">
+                                    <table class="custom-table w-100">
+                                      <tr>
+                                        <td>Contact info :</td>
+                                        <td>
+                                          Emily
+                                          <span class="light-blue"
+                                            >etira@edu</span
+                                          >
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>Phone number :</td>
+                                        <td>12334445</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Accept medicaid?</td>
+                                        <td>yes</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Phone number :</td>
+                                        <td>12334445</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Services :</td>
+                                        <td>
+                                          Applied Behaviour Analysis ( ABA )
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    <div
+                                      class="rating-box d-flex justify-content-between mt-2 pb-2"
+                                    >
+                                      <div class="star-rating">
+                                        <i
+                                          class="fa fa-solid fa-star light-blue"
+                                          aria-hidden="true"
+                                        ></i>
+                                        <i
+                                          class="fa fa-solid fa-star light-blue"
+                                          aria-hidden="true"
+                                        ></i>
+                                        <i
+                                          class="fa fa-solid fa-star light-blue"
+                                          aria-hidden="true"
+                                        ></i>
+                                        <i
+                                          class="fa fa-solid fa-star light-blue"
+                                          aria-hidden="true"
+                                        ></i>
+                                        <i
+                                          class="fa fa-solid fa-star light-blue"
+                                          aria-hidden="true"
+                                        ></i>
+                                      </div>
+                                      <div class="button-box">
+                                        <a href="#" class="custom-btn"
+                                          >Rating Info</a
+                                        >
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="family" class="tab-pane fade">
+                    <br />
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="white-box h-auto">
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-3"
+                          >
+                            <h5 class="box-heading">Profile Data</h5>
+                          </div>
+                          <div class="scroll-bar mhw-fix">
+                            <form action="">
+                              <div class="form-group mb-3">
+                                <label for="">Name</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="jane smith"
+                                />
+                              </div>
+                              <div class="form-group mb-3">
+                                <label for="">Phone Number :</label>
+                                <input
+                                  type="number"
+                                  class="form-control"
+                                  placeholder="jane smith"
+                                />
+                              </div>
+                              <div class="form-group mb-3">
+                                <label for="">Email</label>
+                                <input
+                                  type="email"
+                                  class="form-control"
+                                  placeholder="jane smith"
+                                />
+                              </div>
+                              <div class="form-group mb-3">
+                                <label for="">Preferd Mode of Contact</label>
+                                <select
+                                  class="form-select form-control custom-select"
+                                >
+                                  <option>Jane smith</option>
+                                </select>
+                              </div>
+                              <div class="form-group mb-3">
+                                <label for="">Best time to call</label>
+                                <select
+                                  class="form-select form-control custom-select"
+                                >
+                                  <option>Moring</option>
+                                </select>
+                              </div>
+                              <div class="form-group mb-3">
+                                <label for="">Best time to call</label>
+                                <select
+                                  class="form-select form-control custom-select"
+                                >
+                                  <option>Moring</option>
+                                </select>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="white-box h-auto mt-3 clearfix">
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-3"
+                          >
+                            <h5 class="box-heading">Other Notes</h5>
+                          </div>
+                          <textarea rows="8" class="bdr-20 w-100 bd-thin p-4">
+                           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas, ducimus molestias ipsa fugit consequatur quidem quisquam inventore assumenda cum, maxime voluptate illum voluptatem soluta aliquid aspernatur quo sequi ullam modi.
+                         </textarea
+                          >
+                          <div class="s-btn float-end">
+                            <input
+                              type="button"
+                              value="save"
+                              class="bg-light-blue mt-3 mb-2 bdr-20 btn-custom"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="white-box">
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-3"
+                          >
+                            <h5 class="box-heading">Services</h5>
+                          </div>
+                          <div class="scroll-bar mhw-fix">
+                            <div class="servi-box mb-2">
+                              <p class="mb-0">alegic</p>
+                              <div
+                                class="ser-check d-flex align-items-center justify-content-between"
+                              >
+                                <div class="d-flex align-items-center">
+                                  <div>
+                                    <label class="container-check">
+                                      <input type="checkbox" />
+                                      <span class="checkmark"></span>
+                                    </label>
+                                  </div>
+                                  <div>
+                                    <span
+                                      class="badge rounded-pill light-green f-black mt-3"
+                                      >Navigator</span
+                                    >
+                                  </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <div>
+                                    <label class="container-check">
+                                      <input type="checkbox" />
+                                      <span class="checkmark"></span>
+                                    </label>
+                                  </div>
+                                  <div>
+                                    <span
+                                      class="badge rounded-pill lighter-green f-black mt-3"
+                                      >Saga</span
+                                    >
+                                  </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <div>
+                                    <label class="container-check">
+                                      <input type="checkbox" />
+                                      <span class="checkmark"></span>
+                                    </label>
+                                  </div>
+                                  <div>
+                                    <span
+                                      class="badge rounded-pill lighter-blue f-black mt-3"
+                                      >Navigator</span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="servi-box mb-2">
+                              <p class="mb-0">alegic</p>
+                              <div
+                                class="ser-check d-flex align-items-center justify-content-between"
+                              >
+                                <div class="d-flex align-items-center">
+                                  <div>
+                                    <label class="container-check">
+                                      <input type="checkbox" />
+                                      <span class="checkmark"></span>
+                                    </label>
+                                  </div>
+                                  <div>
+                                    <span
+                                      class="badge rounded-pill light-green f-black mt-3"
+                                      >Navigator</span
+                                    >
+                                  </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <div>
+                                    <label class="container-check">
+                                      <input type="checkbox" />
+                                      <span class="checkmark"></span>
+                                    </label>
+                                  </div>
+                                  <div>
+                                    <span
+                                      class="badge rounded-pill lighter-green f-black mt-3"
+                                      >Saga</span
+                                    >
+                                  </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <div>
+                                    <label class="container-check">
+                                      <input type="checkbox" />
+                                      <span class="checkmark"></span>
+                                    </label>
+                                  </div>
+                                  <div>
+                                    <span
+                                      class="badge rounded-pill lighter-blue f-black mt-3"
+                                      >Navigator</span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="actionp" class="tab-pane fade">
+                    <br />
+                    <div class="white-box relative scroll-bar">
+                      <h5
+                        class="box-heading lighter-bluish bdr-40 p-2 mb-3 ps-3 mt-3"
+                      >
+                        To Do
+                      </h5>
+                      <div
+                        class="plan-content shadow d-flex align-items-center mb-3 p-4"
+                      >
+                        <div class="check-text align-self-start">
+                          <label class="container-check">
+                            <input type="checkbox" />
+                            <span
+                              class="checkmark check-green rounded-circle"
+                            ></span>
+                          </label>
+                        </div>
+                        <div class="plan-text ms-3 w-100">
+                          Lorem, ipsum dolor sit amet consectetur adipisicing
+                          elit. Cumque nemo vero explicabo.
+                          <div
+                            class="complete-box p-2 bdr-20 mt-2 d-flex justify-content-between"
+                          >
+                            <p
+                              class="f-14 mb-0 ps-2 bg-dark-pink p-2 px-3 bdr-40"
+                            >
+                              Complete by :
+                              <span class="f-12">October 20,2021</span>
+                            </p>
+                            <p class="f-14 mb-0 ps-2">
+                              Added On :
+                              <span class="f-12">October 20,2021</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="plan-content shadow d-flex align-items-center mb-3 p-4"
+                      >
+                        <div class="check-text align-self-start">
+                          <label class="container-check">
+                            <input type="checkbox" />
+                            <span
+                              class="checkmark check-green rounded-circle"
+                            ></span>
+                          </label>
+                        </div>
+                        <div class="plan-text ms-3 w-100">
+                          Lorem, ipsum dolor sit amet consectetur adipisicing
+                          elit. Cumque nemo vero explicabo.
+                          <div
+                            class="complete-box p-2 bdr-20 mt-2 d-flex justify-content-between"
+                          >
+                            <p
+                              class="f-14 mb-0 ps-2 bg-dark-pink p-2 px-3 bdr-40"
+                            >
+                              Complete by :
+                              <span class="f-12">October 20,2021</span>
+                            </p>
+                            <p class="f-14 mb-0 ps-2">
+                              Added On :
+                              <span class="f-12">October 20,2021</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <h5
+                        class="box-heading lighter-bluish bdr-40 p-2 mb-3 ps-3 mt-3"
+                      >
+                        Completed
+                      </h5>
+                      <div
+                        class="plan-content shadow d-flex align-items-center mb-3 p-4"
+                      >
+                        <div class="check-text align-self-start">
+                          <label class="container-check">
+                            <input type="checkbox" />
+                            <span
+                              class="checkmark check-green rounded-circle"
+                            ></span>
+                          </label>
+                        </div>
+                        <div class="plan-text ms-3 w-100">
+                          Lorem, ipsum dolor sit amet consectetur adipisicing
+                          elit. Cumque nemo vero explicabo.
+                          <div
+                            class="complete-box p-2 bdr-20 mt-2 d-flex justify-content-between"
+                          >
+                            <p
+                              class="f-14 mb-0 ps-2 bg-dark-green p-2 px-3 bdr-40"
+                            >
+                              Complete by :
+                              <span class="f-12">October 20,2021</span>
+                            </p>
+                            <p class="f-14 mb-0 ps-2">
+                              Added On :
+                              <span class="f-12">October 20,2021</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="plan-content shadow d-flex align-items-center mb-3 p-4"
+                      >
+                        <div class="check-text align-self-start">
+                          <label class="container-check">
+                            <input type="checkbox" />
+                            <span
+                              class="checkmark check-green rounded-circle"
+                            ></span>
+                          </label>
+                        </div>
+                        <div class="plan-text ms-3 w-100">
+                          Lorem, ipsum dolor sit amet consectetur adipisicing
+                          elit. Cumque nemo vero explicabo.
+                          <div
+                            class="complete-box p-2 bdr-20 mt-2 d-flex justify-content-between"
+                          >
+                            <p
+                              class="f-14 mb-0 ps-2 bg-dark-green p-2 px-3 bdr-40"
+                            >
+                              Complete by :
+                              <span class="f-12">October 20,2021</span>
+                            </p>
+                            <p class="f-14 mb-0 ps-2">
+                              Added On :
+                              <span class="f-12">October 20,2021</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="plan-box-footer">
+                        <div class="d-flex mt-2 justify-content-between">
+                          <input
+                            type="text"
+                            class="form-control w-60"
+                            placeholder="Enter new action"
+                          />
+                          <div class="calender c-pointer">
+                            <div class="date-text">Select due date</div>
+                            <input type="date" class="relative z-index" />
+                            <i
+                              class="fa fa-calendar light-blue relative r-20"
+                            ></i>
+                          </div>
+                          <div class="save-btn">
+                            <input
+                              type="button"
+                              value="save"
+                              class="bg-gray bdr-20 btn-custom"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="notes" class="tab-pane fade">
+                    <br />
+                    <div class="white-box h-auto">
+                      <div class="">
+                        <div class="note-box mb-5">
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-3 mt-3 pb-3 bd-thin-bottom"
+                          >
+                            <div class="divide">
+                              <h5 class="box-heading">October 22</h5>
+                            </div>
+                            <div class="devide">
+                              <span
+                                >Family Feedback
+                                <span class="bg-dark-pink p-2 bdr-40 px-3 ms-2"
+                                  >incomplete</span
+                                ></span
+                              >
+                            </div>
+                          </div>
+                          <div class="note-content">
+                            <h5 class="box-heading">Session note</h5>
+                            <p>
+                              Lorem ipsum dolor sit, amet consectetur adipisicing
+                              elit. Repudiandae inventore sint ipsa eligendi
+                              accusamus atque esse error tenetur, sequi in ratione
+                              modi praesentium dignissimos quam vitae dolores
+                              ipsum soluta officiis.
+                            </p>
+                            <div
+                              class="sv-feedback-box bg-lighter-gray p-3 bdr-20 mt-2"
+                            >
+                              <h5 class="box-heading">
+                                Awaiting supervisor Feedback
+                              </h5>
+                              <p class="italic mt-4 f-gray">
+                                Awating supervisor Feedback
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="note-box mb-5">
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-3 mt-3 pb-3 bd-thin-bottom"
+                          >
+                            <div class="divide">
+                              <h5 class="box-heading">October 22</h5>
+                            </div>
+                            <div class="devide">
+                              <span
+                                >Family Feedback
+                                <span class="bg-dark-green p-2 bdr-40 px-3 ms-2"
+                                  >complete</span
+                                ></span
+                              >
+                            </div>
+                          </div>
+                          <div class="note-content">
+                            <h5 class="box-heading">Session note</h5>
+                            <p>
+                              Lorem ipsum dolor sit, amet consectetur adipisicing
+                              elit. Repudiandae inventore sint ipsa eligendi
+                              accusamus atque esse error tenetur, sequi in ratione
+                              modi praesentium dignissimos quam vitae dolores
+                              ipsum soluta officiis.
+                            </p>
+                            <div
+                              class="sv-feedback-box bg-lighter-gray p-3 bdr-20 mt-2"
+                            >
+                              <h5 class="box-heading">
+                                Awaiting supervisor Feedback
+                              </h5>
+                              <p class="italic mt-4 f-gray">
+                                Awating supervisor Feedback
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                          type="button"
+                          value="Add a new note"
+                          class="p-2 px-3 bg-dark-blue f-bold bd-none"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="white-box relative h-auto">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="box-heading">Action Plan</h5>
+              </div>
+              <div class="plan-box scroll-bar">
+                <div
+                  class="plan-content shadow d-flex justify-content-between align-items-center mb-2"
+                >
+                  <div class="check-text align-self-start">
+                    <input type="radio" class="custom-radio" />
+                  </div>
+                  <div class="plan-text ms-2">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Cumque nemo vero explicabo.
+                    <div class="complete-box bg-light-pink p-2 bdr-20 mt-2">
+                      <p class="f-14 mb-0 ps-2">
+                        Complete by : <span class="f-12">october 20,2021</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="plan-content shadow d-flex justify-content-between align-items-center mb-2"
+                >
+                  <div class="check-text align-self-start">
+                    <input type="radio" class="custom-radio" />
+                  </div>
+                  <div class="plan-text ms-2">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Cumque nemo vero explicabo.
+                    <div class="complete-box bg-light-pink p-2 bdr-20 mt-2">
+                      <p class="f-14 mb-0 ps-2">
+                        Complete by : <span class="f-12">october 20,2021</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="plan-content shadow d-flex justify-content-between align-items-center mb-2"
+                >
+                  <div class="check-text align-self-start">
+                    <input type="radio" class="custom-radio" />
+                  </div>
+                  <div class="plan-text ms-2">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Cumque nemo vero explicabo.
+                    <div class="complete-box bg-light-pink p-2 bdr-20 mt-2">
+                      <p class="f-14 mb-0 ps-2">
+                        Complete by : <span class="f-12">october 20,2021</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="plan-content shadow d-flex justify-content-between align-items-center mb-2"
+                >
+                  <div class="check-text align-self-start">
+                    <input type="radio" class="custom-radio" />
+                  </div>
+                  <div class="plan-text ms-2">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Cumque nemo vero explicabo.
+                    <div class="complete-box bg-light-pink p-2 bdr-20 mt-2">
+                      <p class="f-14 mb-0 ps-2">
+                        Complete by : <span class="f-12">october 20,2021</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="plan-box-footer">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter new action"
+                />
+                <div class="d-flex mt-2 justify-content-between">
+                  <div class="calender c-pointer">
+                    <div class="date-text">Select due date</div>
+                    <input type="date" class="relative z-index" />
+                    <i class="fa fa-calendar light-blue relative r-20"></i>
+                  </div>
+                  <div class="save-btn">
+                    <input
+                      type="button"
+                      value="save"
+                      class="bg-gray bdr-20 btn-custom"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="chat-box">
+              <div class="my-2">
+                <h5 class="box-heading p-3">Chat with jane smith</h5>
+              </div>
+              <div class="row">
+
+                <div class="col-md-4">
+            
+                  <div class="user-list-card">
+                    <div class="user-card"
+                         [ngClass]="user?.phone === selectedUser?.phone && 'active'"
+                         *ngFor="let user of userList"
+                         (click)="selectUserHandler(user?.phone)"
+                    >
+            
+                      <img [src]="user?.image"
+                           [alt]="user?.name"
+                           class="avatar"
+                      />
+                      <p class="username">{{user?.name}}</p>
+            
+                    </div>
+                  </div>
+            
+                </div>
+                <div class="col-md-8">
+            
+                  <div class="chat-container">
+                    <ng-container *ngIf="selectedUser">
+                      <div class="chat-header">
+            
+                        <img [src]="selectedUser?.image"
+                             [alt]="selectedUser?.name"
+                             class="avatar"
+                        />
+                        <p class="username">{{selectedUser?.name}}</p>
+            
+                      </div>
+            
+                      <div class="chat-body">
+                        <div *ngFor="let item of messageArray"
+                             
+                        >
+                          <p class="message-container">{{item?.message}}</p>
+                        </div>
+                      </div>
+            
+                      <div class="chat-footer">
+            
+                        <div class="row">
+                          <div class="col-md-10">
+                            <div class="form-group mb-0">
+                              <input type="text"
+                                     placeholder="Type a message"
+                                     class="form-control"
+                                     [(ngModel)]="messageText"
+                                     (keyup)="$event.keyCode === 13 && sendMessage()"
+                              />
+                            </div>
+                          </div>
+            
+                          <div class="col-md-2 text-center align-self-center">
+                            <button class="btn btn-primary btn-sm px-3"
+                                    (click)="sendMessage()">Send
+                            </button>
+                          </div>
+                        </div>
+            
+                      </div>
+                    </ng-container>
+                  </div>
+            
+                </div>
+            
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- model starts -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content bdr-20">
+        <!-- Modal Header -->
+        <div class="modal-header bd-none">
+          <h4 class="modal-title">Filter Services</h4>
+          <button
+            type="button"
+            class="btn-close light-blue f-14"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="form-group mb-3">
+            <label for="">Insurance</label>
+            <select class="form-select form-control custom-select">
+              <option>Moring</option>
+            </select>
+          </div>
+          <div class="form-group mb-3">
+            <label for="">Telihealth</label>
+            <select class="form-select form-control custom-select">
+              <option>Moring</option>
+            </select>
+          </div>
+          <div class="form-group mb-3">
+            <label for="">Geographic Location</label>
+            <select class="form-select form-control custom-select">
+              <option>Moring</option>
+            </select>
+          </div>
+          <div class="form-group mb-3">
+            <label for="">Language Availablity</label>
+            <select class="form-select form-control custom-select">
+              <option>Moring</option>
+            </select>
+          </div>
+          <div class="form-group mb-3">
+            <label for="">Hourse</label>
+            <select class="form-select form-control custom-select">
+              <option>Moring</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group text-center mb-5 px-3">
+          <button
+            type="button"
+            class="btn bg-dark-blue form-control btn-lg h-40 bdr-40"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

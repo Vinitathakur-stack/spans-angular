@@ -1,0 +1,37 @@
+<!-- header starts -->
+<section class="header">
+  <nav class="navbar navbar-expand bg-white">
+    <div class="container">
+      <a class="navbar-brand" href="#"
+        ><img src="../../../../assets/images/logo.png"
+      /></a>
+      <!-- <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapsibleNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      
+      <div class="collapse navbar-collapse" id="collapsibleNavbar" >
+        <ul class="navbar-nav ms-auto">
+          <!-- <li class="nav-item">Register</li> -->
+          <li class="nav-item dropdown" *ngIf="isLoggedIn$ | async as isLoggedIn" [routerLink]="['/profile']">
+            <a
+              class="nav-link f-black d-flex align-items-center"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              >Hi Jane
+              <span class="profile-img ms-2"	
+                ><img src="../../../../assets/images/profile.png" /></span
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section>
+
+<!-- header ends -->
