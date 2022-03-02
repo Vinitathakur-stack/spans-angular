@@ -19,6 +19,7 @@ import { ForgotPasswordComponent } from "./component/forgot-password/forgot-pass
 import { HeaderComponent } from "./component/sub-component/header/header.component";
 import { FooterComponent } from "./component/sub-component/footer/footer.component";
 import { TokenInterceptor } from "./interceptor/token.interceptor";
+import { AuthGuard } from "./guard/auth.guard";
 
 @NgModule({
     declarations: [
@@ -42,8 +43,10 @@ import { TokenInterceptor } from "./interceptor/token.interceptor";
         BrowserAnimationsModule,
         ToastrModule.forRoot(),
         HttpClientModule,
+        
     ],
     providers: [
+        AuthGuard,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: TokenInterceptor,
