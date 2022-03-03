@@ -7,17 +7,23 @@ import { BehaviorSubject, Subject } from "rxjs";
     providedIn: "root",
 })
 export class AuthService {
-
-    private currentUser = new BehaviorSubject<any>(null);
-    userInfo: any = "";
-
+  
     constructor(public HelperService: HelperService) {}
+
+    // check user is logged in or not //
+    checkLogin(): Observable<any> {
+        return this.HelperService.makeHttpRequest(
+            "check-login",
+            "post",
+            true
+        );
+    }
     /**
      * @desc login user
      */
     login(data: any): Observable<any> {
        
-        return this.HelperService.makeHttpRequest("login", "post", data, true);
+        return this.HelperService.makeHttpRequest("login", "post", data);
     }
     /**
      * @desc create user password

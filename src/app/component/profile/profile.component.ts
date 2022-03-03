@@ -19,31 +19,34 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
   }
-save(){
+  save(){
 
-}
-edit(){
-  this.disableForm = false;
-}
-logout(): void {
-  localStorage.clear();
-  this.isLoggedIn = false;
-  // this.authService.logout().subscribe((response) => {
-  //       if (response.status == "success") {
-  //         localStorage.clear();
-  //         this.isLoggedIn = false;
-  //         this.route.navigate(["/"]).then(() => {
-  //             this.toaster.success(response.msg, "success");
-  //         });
-  //     } else {
-  //         this.toaster.error(
-  //             "Something is wrong. Please try again.",
-  //             "error"
-  //         );
-  //     }
-      
-  //     });
+  }
+  edit(){
+    this.disableForm = false;
+  }
+  cancel(){
+    this.disableForm = true;
+  }
+  logout(): void {
+    localStorage.clear();
+    this.isLoggedIn = false;
+    // this.authService.logout().subscribe((response) => {
+    //       if (response.status == "success") {
+    //         localStorage.clear();
+    //         this.isLoggedIn = false;
+    //         this.route.navigate(["/"]).then(() => {
+    //             this.toaster.success(response.msg, "success");
+    //         });
+    //     } else {
+    //         this.toaster.error(
+    //             "Something is wrong. Please try again.",
+    //             "error"
+    //         );
+    //     }
+        
+    //     });
 
-}
+  }
 
 }

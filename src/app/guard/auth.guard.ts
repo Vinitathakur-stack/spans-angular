@@ -11,10 +11,11 @@ export class AuthGuard implements CanActivate {
 
   canActivate() {
    // console.log(this.api.isAuthenticated.getValue(),"router");
-      if(!this.api.isUserLoggedIn.getValue()) {
-        this.router.navigate(['']);
-        return false;
-      }
+ 
+      // if(!this.api.isAuthenticated()) {
+      //   this.router.navigate(['']);
+      //   return false;
+      // }
       return true;
   }
   

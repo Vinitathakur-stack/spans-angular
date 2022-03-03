@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
-
+import { TokenStorageService } from "../../service/token-storage.service"
 import {
     FormBuilder,
     FormGroup,
@@ -9,7 +9,6 @@ import {
     FormControl,
 } from "@angular/forms";
 import { AuthService } from "src/app/service/auth.service";
-import { TokenStorageService } from "src/app/service/token-storage.service";
 
 @Component({
     selector: "app-login",
@@ -24,7 +23,7 @@ export class LoginComponent implements OnInit {
     errorMessage = "";
     roles: string[] = [];
     membershipList: any = ["Family", "Navigator", "XYZ"];
-
+    //isLoggedIn$: Observable<boolean>;
     constructor(
         private router: Router,
         private formBuilder: FormBuilder,
@@ -58,14 +57,16 @@ export class LoginComponent implements OnInit {
     }
 
     loginUser(): void {
+
         if (this.loginform.valid) {
             let input = JSON.parse(JSON.stringify(this.loginform.value));
             this.authService.login(input).subscribe((response) => {
                 if (response["status"] == "success") {
                     console.log(response["data"]);
                     this.tokenStorage.saveToken(response["token"]);
-                    this.tokenStorage.saveUser(response["userDetails"]);
-                 
+                    this.tokenStorage.saveUser(response["userDetails"], response["userType"]);
+                    this.isLoggedIn = true;
+                    
                     let path = "/home";
                     this.router.navigate([path]).then(() => {
                         this.toastr.success(response["msg"]);

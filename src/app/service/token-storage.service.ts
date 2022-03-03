@@ -9,12 +9,12 @@ export class TokenStorageService {
 
   saveToken(tokendata){
     localStorage.setItem("token", tokendata);
-
   }
-  saveUser(data){
- 
-    localStorage.setItem("username", data.Id);
-    localStorage.setItem("email", data.Name);
-    localStorage.setItem("name", data.Email);
+  
+  saveUser(userDetails,userType){
+    localStorage.setItem("userType",userType);
+    localStorage.setItem("username", userDetails.username);
+    localStorage.setItem("email",  userDetails.email);
+    localStorage.setItem("m_number", userDetails.phone_number);
   }
 }

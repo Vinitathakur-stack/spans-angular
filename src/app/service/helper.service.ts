@@ -10,30 +10,24 @@ import { catchError, retry, map } from "rxjs/operators";
 })
 export class HelperService {
     isLoggedIn: boolean = false;
-    private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
-        false
-    );
+  
     constructor(private http: HttpClient) {}
 
     /**
-     * Get token and send it to interceptor
-     */
+    * Get token and send it to interceptor
+    */
     getToken() {
-        return localStorage.getItem("token");
+        return localStorage.getItem('token');
     }
+
 
     /**
      * Check if the API is required for Token
      */
-    public isAuthenticated() {
-        return this.loggedIn;
+    public isAuthenticated(): boolean {
+        return this.isLoggedIn;
     }
-     /**
-     * Check if the User is LoggedIn / LoggedOut
-     */
-    get isUserLoggedIn() {
-        return this.loggedIn;
-    }
+  
     /**
      * @desc Common function to call GET/POST with/without parameters
      * @param url
@@ -56,12 +50,12 @@ export class HelperService {
         return httpRequest.pipe(
             map((res) => {
                 let response = res;
-                if(methodname == 'login' && response['status'] == 'success'){
-                    this.loggedIn.next(true);
-                }
-                if(methodname == 'logout' && response['status'] == 'success'){
-                    this.loggedIn.next(false);
-                }
+                // if(methodname == 'login' && response['status'] == 'success'){
+                //     this.loggedIn.next(true);
+                // }
+                // if(methodname == 'logout' && response['status'] == 'success'){
+                //     this.loggedIn.next(false);
+                // }
                 // (data['showSpinner'] == undefined || (data['showSpinner'] && data['showSpinner'] != false)) &&
                 //     /this.loading.dismiss();
                 return response;
